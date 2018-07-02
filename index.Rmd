@@ -1,0 +1,66 @@
+---
+title: "GitLab Pages for Ninjas"
+subtitle: "<br/>How to build and deploy pdf xaringan presentations"
+author: "Romain Lesur"
+date: "2018/06/27"
+output:
+  xaringan::moon_reader:
+    self_contained: true
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: inverse, center, middle
+
+# Struggled with the pdf generation of your xaringan slideshow?
+
+---
+
+# Fast Lane
+
+You need:
+
+- a [GitLab](https://gitlab.com/) account  
+- your `xaringan` `Rmd` file
+
+--
+
+
+**Steps:**
+
+- Create a new `GitLab` repo  
+- Clone this repo (with RStudio)
+- Add your `Rmd` file to this project:   
+**rename this file `index.Rmd`**  
+**add the `self_contained: true` option**  
+- Create a new text file named `.gitlab-ci.yml`  
+- Copy [these lines](https://gitlab.com/RLesur/xaringan-gitlab-pages/raw/master/.gitlab-ci.yml) to `.gitlab-ci.yml` file.
+
+---
+
+# Push to GitLab!
+
+A few minutes later, your `pdf` document is available at:
+
+`https://username.gitlab.io/nameofyourrepo/slides.pdf`
+
+You can follow the progression of the build in the `CI/CD` menu of your project. 
+
+You can access to the pdf version of this slideshow [here](https://rlesur.gitlab.io/xaringan-gitlab-pages/slides.pdf).
+
+
+---
+
+# Download your html and pdf slideshow
+
+
+In `GitLab`, from the menu `CI/CD > Pipelines`, you can download your files (they are named *artifacts*).
+
+You can find an example [here](https://gitlab.com/RLesur/xaringan-gitlab-pages).
